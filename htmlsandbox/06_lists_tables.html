@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lists and Tables</title>
+</head>
+<body>
+    <!-- Unordered List -->
+    <ul style="list-style: circle">  <!-- Bullet Style-->
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+    </ul>
+
+    <!-- Ordered List -->
+    <ol type="A">  <!-- Type of Bullets -->
+        <li>Item 1</li>  <!-- li*4 + Tab will give 4 li tags -->
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+    </ol>
+
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2
+            <ul>
+                <li>Nested Item1</li>
+                <li>Nested Item2</li>
+            </ul>
+        </li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+    </ul>
+
+    <!-- Tables -->
+
+    <table style="width: 600px"> <!-- Style Attribute is not recomended -->
+        <thead> <!-- Table Head -->
+            <tr> <!-- Insert Row -->
+                <th>First Name</th> <!-- Insert Heading Column -->
+                <th>Last Name</th> 
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody> <!-- Data -->
+            <tr>
+                <td>John</td>
+                <td>Denver</td>
+                <td>John@gmail.com</td>
+            </tr>
+            <tr>
+                <td>Kate</td>
+                <td>Lourance</td>
+            </tr>
+            <tr>
+                <td>Jeff</td>
+                <td></td>
+                <td>Jeff@gmail.com</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Positioning</title>
+    <style>
+        body
+        {
+            height: 4000px;
+        }
+        .container
+        {
+            position: relative;  /* Container is parent ... It should be relative in position */
+            width: 500px;
+            height: 500px;
+            background: #333;
+        }
+        .box
+        {
+            width: 100px;
+            height: 100px;
+        }
+        #box_1
+        {
+            position: static;  /* Default */
+            background: red;
+        }
+        #box_2
+        {
+            position: relative;  /* wrt background */
+            top: 50px;
+            left: 50px;
+            background: green;
+        }
+        #box_3
+        {
+            position: absolute;  /* wrt container */
+            top: 100px;
+            left: 100px;
+            background: yellow;
+        }
+        #box_4
+        {
+            position: fixed;
+            background: blue;
+        }
+        #box_5
+        {
+            position: sticky;
+            background: orange;
+            top: 0;
+            z-index: -4;  /* z index defines the level of the element ... negative downward ... positive upward */
+        }
+    </style>
+</head>
+<body>
+    <div id="box_1" class="box"></div>
+    <div class="container">
+        <div id="box_2" class="box"></div>
+        <div id="box_3" class="box"></div>
+    </div>
+    <div id="box_4" class="box"></div>
+    <div id="box_5" class="box"></div>
+</body>
+</html>

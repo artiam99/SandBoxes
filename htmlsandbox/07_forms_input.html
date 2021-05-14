@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms and Input</title>
+</head>
+<body>
+    <form action="process.php">
+        <!-- Text -->
+        <div>
+            <label for="Name">Name</label>
+            <input type="text" id="Name" value="Debarshi Maitra">  <!-- value attribule prefill input -->
+        </div>
+        <!-- Email -->
+        <div>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="Enter email"> <!-- placeholder attribute shows messege in input-->
+        </div>
+        <!-- Textarea -->
+        <div>
+            <label for="message">Message</label><br>
+            <textarea name="message" id="message" cols="30" rows="10"></textarea>
+        </div>
+        <!-- Select -->
+        <div>
+            <label for="sex">Sex</label>
+            <select name="sex" id="sex">
+                <option value="male">Male</option>
+                <option value="female" selected>Female</option>  <!-- selected attribute preselect option-->
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <!-- Number -->
+        <div>
+            <label for="age">Age</label><br>
+            <input type="number" name="number" id="number">
+        </div>
+        <!-- Date -->
+        <div>
+            <label for="birthdate">Birthdate</label>
+            <input type="date" name="birthdate" id="birthdate">
+        </div>
+        <!-- Radio -->
+        <div>
+            <label for="membership">Membership</label>
+            <input type="radio" name="membership" id="membership" value="simple">Simple
+            <input type="radio" name="membership" id="membership" value="standard" checked>Standard <!-- checked attribute preselect membership -->
+            <input type="radio" name="membership" id="membership" value="super">Super
+        </div>
+        <!-- Checkbox -->
+        <div>
+            <label for="membership">I Like -- </label> <!-- Select text (Ctrl + d) selects next same text and change them at the same time-->
+            <input type="checkbox" name="likes" id="likes" value="car" checked>Car
+            <input type="checkbox" name="likes" id="likes" value="bike" checked>Bike
+            <input type="checkbox" name="likes" id="likes" value="boat">Boat
+        </div>
+        <!-- Input Submit -->
+        <!-- <input type="submit" value="submit"> -->
+        <!-- Button Submit -->
+        <button type="submit">Submit</button> <!-- Recommended over input-->
+        <button type="reset">Reset</button> <!-- Reset Form -->
+    </form>
+</body>
+</html>

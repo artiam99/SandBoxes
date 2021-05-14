@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backgrounds and Borders</title>
+    <style>
+        #box-1
+        {
+            background-color: blanchedalmond;
+            
+            /* border-width: 3px;
+               border-color: brown;
+               border-style: dashed;
+            */
+            
+            border: brown 3px dashed;
+        }
+
+        #box-2
+        {
+            background-color: #333;
+            color: #ffffff;
+            border-top: red dotted 3px;
+            border-top-left-radius: 18px;
+            border-top-right-radius: 18px;
+        }
+
+        #box-3
+        {
+            color:silver;
+            background-image: url('./img/stars.jpg');
+            background-repeat: no-repeat; /* No repeatation */
+            background-position: center center; /* Shift image wrt x and y axis */ 
+            background-size: cover; /* Full Image*/
+            height: 300px;
+            width: 600px;
+        }
+
+        #box-4
+        {
+            background-image: url('./img/leaf.png'); /* png is transparent image */
+            background-position: center center;
+            background-attachment: fixed;  /* Scroll up and down but picture will remain at same position*/
+            background-size: cover;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box-1"> <!-- Type #box-1 + Enter -->
+        <h3>Box One</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, beatae.</p>
+    </div>
+    <br>
+    <div id="box-2"> <!-- Select => Shift + Alt + Down -->
+        <h3>Box Two</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, beatae.</p>
+    </div>
+    <br>
+    <div id="box-3">
+        <h3>Box Three</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, beatae.</p>
+    </div>
+    <br>
+    <div id="box-4">
+        <h3>Box Four</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, beatae.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, beatae.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, beatae.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, beatae.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, beatae.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, beatae.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, beatae.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, beatae.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, beatae.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, beatae.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, beatae.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, beatae.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, beatae.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, beatae.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+// NoSQL Databases use Collections , Documents and Properties to store data

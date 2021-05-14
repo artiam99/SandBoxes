@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Styling</title>
+    <style>
+        body
+        {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .navbar
+        {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            background: #4c6ca0;
+            border-radius: 5px;
+            overflow: auto;
+        }
+        .navbar li
+        {
+            float: left;
+        }
+        .navbar li a
+        {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+        }
+        .navbar li a:hover
+        {
+            background-color: #446190;
+            color: #f4f4f4;
+        }
+        .side_menu
+        {
+            list-style: none;
+            border: 1px #ddd solid;
+            border-radius: 10px;
+            width: 300px;
+            padding: 20px;
+        }
+        .side_menu li
+        {
+            font-size: 18px;
+            line-height: 2.4em;
+            border-bottom: dotted 1px #ddd;
+        }
+        .side_menu li:last-child  /*Sudo Selector to target last list item*/
+        {
+            border: none;
+        }
+        .side_menu li a
+        {
+            color: #333;
+            text-decoration: none;
+        }
+        .side_menu li a:hover
+        {
+            color: coral;
+        }
+    </style>
+</head>
+<body>
+    <ul class="navbar"> <!-- Floating List Items -->
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <ul class="side_menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</body>
+</html>

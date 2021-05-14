@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Float & Align</title>
+    <style>
+        *
+        {
+            box-sizing: border-box;
+        }
+        .container
+        {
+            max-width: 960px;  /*  Use max-width in container to make changes in new line with page size*/
+            margin: 30px 500px;
+        }
+        body
+        {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.4em;
+        }
+
+        .box
+        {
+            background: #f4f4f4;
+            border: 1px solid #777;
+            padding: 20px;
+            margin-bottom: 10px;
+        }
+
+        .box p
+        {
+            text-align: center;
+            text-align: justify; /* make all edges even ... just like MS Word */
+        }
+
+        #box_2
+        {
+            float: left;
+            width: 65%;
+        }
+        #box_3
+        {
+            float: right;
+            width: 30%;
+        }
+        .clr
+        {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">  <!-- .name_of_class    Enter -->
+        <div id="box_1" class="box">  <!-- #box_1.box   Enter -->
+            <h3>Heading1</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non ipsa veniam praesentium?</p>
+        </div>
+        <div id="box_2" class="box">
+            <h3>Heading2</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non ipsa veniam praesentium?</p>
+        </div>
+        <div id="box_3" class="box">
+            <h3>Heading3</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non ipsa veniam praesentium?</p>
+        </div>
+        <div class="clr"></div>
+        <div id="box_4" class="box">
+            <h3>Heading4</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non ipsa veniam praesentium?</p>
+        </div>
+
+    </div>
+</body>
+</html>

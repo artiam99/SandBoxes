@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link States and Buttons</title>
+    <style>
+        a
+        {
+            color: #333;
+            text-decoration: none;
+        }
+        a:hover /* Changes when carsor on link*/
+        {
+            color: coral;
+            font-size: 40px;
+        }
+
+        a:visited  /* Once visited change color*/
+        {
+            color: red;
+        }
+        a:active  /* when link is active */
+        {
+            color: green;
+        }
+
+        .btn
+        {
+            background: #4c6ca0;
+            color: white;
+            border: none;
+            font-size: 16px;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <a class="btn" href="#">Click Here</a>
+    <br>
+    <br>
+    <button class="btn">Button</button>
+</body>
+</html>

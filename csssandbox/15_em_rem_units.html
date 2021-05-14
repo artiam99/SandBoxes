@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Em and Rem Units</title>
+    <style>
+        #box_1
+        {
+            font-size: 20px;
+        }
+        #box_1 p
+        {
+            font-size: 1.5em;
+            padding: 1em;
+        }
+        #box_1 ul
+        {
+            font-size: 1.2em;
+        }
+        html
+        {
+            font-size: 10px;
+        }
+        #box_2 h3
+        {
+            font-size: 2rem;
+        }
+        #box_2 p
+        {
+            font-size: 1.6rem;
+            line-height: 1.7rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="box_1">
+        <h3>Box One</h3>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error nostrum veritatis expedita! Laboriosam, similique id!</p>
+        <ul>
+            <li>1</li>  <!-- li{$}*4  Enter -->
+            <li>2</li>
+            <li>3
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </li>
+            <li>4</li>
+        </ul>
+    </div>
+    <div id="box_2">
+        <h3>Box Two</h3>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error nostrum veritatis expedita! Laboriosam, similique id!</p>
+    </div>
+</body>
+</html>

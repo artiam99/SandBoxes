@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors</title>
+    <style>
+        /* Whole Body */
+        body
+        {
+            background-color: grey;
+        }
+
+        /* . is for class */
+        .primary_heading
+        {
+            color: green;
+        }
+
+        /* # is for id */
+        #welcome
+        {
+            background-color: greenyellow;
+        }
+
+        /* Multiple Selectors*/
+        #welcome , #about
+        {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 5px;
+        }
+
+        /* Nested Selectors */
+        #welcome p /* in welcome id's para tag*/
+        {
+            font-size: 20px;
+        }
+
+        #about
+        {
+            color: honeydew;
+        }
+    </style>
+</head>
+<body>
+    <div id="welcome">  <!-- We're not gonna have another id welcom so id else class-->
+        <h2 class="primary_heading">Welcome</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur, quas.</p>
+    </div>
+    <div id="about">
+        <h2>About</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, officiis?</p>
+    </div>
+    
+</body>
+</html>

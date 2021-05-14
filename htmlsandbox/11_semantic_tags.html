@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HTML5 Semantic Tags</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      ul {
+        padding: 0;
+        list-style: none;
+      }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #333;
+        line-height: 1.4;
+      }
+
+      #header {
+        margin-bottom: 15px;
+        background: #333;
+        color: #fff;
+        padding: 10px;
+      }
+
+      #main {
+        float: left;
+        width: 69%;
+      }
+
+      #sidebar {
+        float: right;
+        width: 29%;
+      }
+
+      .clr {
+        clear: both;
+      }
+
+      #footer {
+        background: #333;
+        color: #fff;
+        padding: 10px;
+      }
+
+      .text-center {
+        display: block;
+        text-align: center;
+      }
+
+      .card {
+        border: 1px solid #ddd;
+        background: #f4f4f4;
+        padding: 20px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body> <!-- instead of div we are using header , main , section , article , aside , nav , footer etc.-->
+    <!-- Header -->
+    <header id="header" class="card">
+      <h1>My Website</h1>
+      <p>Just Another Website</p>
+    </header>
+
+    <!-- Main Content (left) -->
+    <main id="main">
+      <!-- Welcome Section -->
+      <section id="welcome" class="card">
+        <h2>Welcome To Our Website</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
+          cupiditate itaque possimus numquam corporis odit deserunt voluptas
+          repellat ad ex earum magnam mollitia magni eaque nisi, excepturi nam
+          temporibus! Sed. <br />
+          <a href="#" class="text-center">Click For More</a>
+        </p>
+      </section>
+      <!-- Blog Section -->
+      <section id="blog">
+        <h2>From Our Blog</h2>
+        <!-- Article One -->
+        <article class="article">
+          <h3>Article One</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
+            veniam adipisci necessitatibus quia quisquam? Eligendi vitae quia
+            totam accusantium officiis!
+          </p>
+        </article>
+        <!-- Article Two -->
+        <article class="article">
+          <h3>Article Two</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
+            veniam adipisci necessitatibus quia quisquam? Eligendi vitae quia
+            totam accusantium officiis!
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <!-- Sidebar (right) -->
+    <aside id="sidebar" class="card">
+      <h3>Navigation</h3>
+      <!-- Navigation -->
+      <nav>
+        <ul id="main-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <hr />
+      <h3>Contact Us</h3>
+      <ul>
+        <li><strong>Address:</strong> 50 Main st, Boston MA</li>
+        <li><strong>Phone:</strong> (555) 555-5555</li>
+        <li><strong>Email:</strong> me@somethingcool.come</li>
+      </ul>
+    </aside>
+
+    <div class="clr"></div>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <p class="text-center">Copyright &copy; My Website 2019</p>
+    </footer>
+  </body>
+</html>
