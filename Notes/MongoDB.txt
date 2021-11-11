@@ -1,0 +1,95 @@
+MongoDB is a document-oriented NoSQL database management system.
+
+We don't have to install MongoDB. MongoDB Atlas is Cloud version of dbms.
+MongoDB Compass is GUI Application for managing data in database.
+
+Create cluster .. Set up security .. Go to Connect .. Get MongoDB URL .. for conncecting with our created cluster.
+
+
+Mongoose Object Mondeling Library is used for modeling database in Node.js.
+
+
+Connect to Database - 
+
+    const connectDB = async () =>
+    {
+        try
+        {
+            const conn = await mongoose.connect(process.env.MONGO_URI, { 
+                                                                            useUnifiedTopology: true ,
+                                                                            useNewUrlParser: true ,
+                                                                            useCreateIndex: true,
+                                                                        })
+
+            console.log('MongoDB is connected.')
+        }
+        catch(error)
+        {
+            console.log(error)
+
+            process.exit(1)
+        }
+    }
+
+
+Model - 
+
+    const userSchema = mongoose.Schema(
+    {
+        name: { type: String, required: true, default: false },
+
+        email: { type: String, required: true, unique: true },
+        
+        password: { type: String, required: true, select: false },
+
+        product: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'product' }
+    },
+    {
+        timestamp: true,
+    })
+
+    userSchema.methods.matchPassword = async function(enteredPassword) ..... add methods
+    {
+        return await bcrypt.compare(enteredPassword , this.password)
+    }
+
+    const User = mongoose.model('User' , userSchema)  ..... mongoose.model compiles a Schema into a Model.
+                                                            Now we can perform CRUD operations on model.
+
+    module.exports = User
+
+
+Queries - 
+
+    const user = await User.findOne({ email: Email }) ... Returns the whole document.
+
+    const user = await User.findById(req.user._id)
+
+    const users = await User.find({})  ... all documents
+
+    const results = await UserModel.find({ name: { $regex: searchText, $options: 'i' } })  .... find by keywords.
+
+    const profile = await ProfileModel.findOne({ user: user._id }).populate('user') .... polulates profile with other user fields.
+
+
+
+    const user = await User.create({ name, email, password }) ... Create new doc in database.
+
+
+
+    user.name = req.body.name || user.name  .... put update .. whole user is sent
+    
+    const updatedUser = await user.save()
+
+
+    const updatedUser = await user.findByIdAndUpdate(_id, req.body, { new: true }) .... patch update
+    
+    .... We will have to add 'useFindAndModify: false' in connectDB function ...... req.body { email: "adfa@gmail.com" }
+
+
+
+    await user.remove()  ... Delete document
+
+
+
+

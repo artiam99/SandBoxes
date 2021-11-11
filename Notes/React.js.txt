@@ -1,0 +1,376 @@
+React.js is a JavaScript Library of building User Interfaces.
+
+But the enviornment it gives to build UI, it feels like working with a Framework.
+
+
+Virtual DOM - 
+
+    Real DOM is slower while updatation. If one element is changed then whole DOM will be rebuilt.
+
+    Virtual DOM is an Object identical to Real DOM or JavaScript DOM Object but it cannot decide what to put on screen.
+
+    Manipulating Virtual DOM is much faster.
+
+    React maintains two VDOMs one updated, one not updated. It compares both & points out elements to change (This process is called diffing)
+    and changes them in Real DOM without re-building the real DOM tree (This Process is called reconciliation).
+
+    ReactDom renders react elements.
+
+
+
+Components - 
+
+    Component in react is a self contained functional block
+    which provides automatic data binding (Change w/o refresh. Concept of AJAX request).
+
+    A small feature that makes up a piece of UI.
+
+    React maintains Components Based Architecture.
+
+
+    Imperative Style - for loop in array
+    
+    Declarative Style - array.map()
+
+    React follows Declarative Style.
+
+    Component Name must start with Uppercase letter.
+
+
+
+Single Page Architecture -
+
+    React follows Single Page Architecture.
+
+    Browser sends URL request to Server. Server sends back Static Assests (HTML, CSS, JS).
+
+    Barebone of page is shown in browser and we see loading for data.
+
+    Static assest loads JavaScript Code and JavaScript Code fetches Data from the Server.
+
+    Once the data is received by browser, HTML Skeleton renders missing data.
+
+    When request for some specific section will not reload entire page. It will render that specific section only.
+
+
+
+Modules - 
+
+    Reusable JavaScript Code that can be imported in other files ... Functions, Components.
+
+    ES moduls - import, export,  JavaScript module - require, module.export
+
+
+
+Babel - 
+
+    Browser does not support JSX. Babel is a tool that transcompiles JSX Syntax to Pure React Syntax. (ES 6 -> ES5)
+
+    Pure react is very messy. React.creatElement("h1", "Hello World") -> <h1>Hello World</h1>
+
+
+
+Class Based Components - 
+
+    class Fruit extends React.Component
+    {
+        constructor(props)
+        {
+            super(props)
+        }
+
+        render()
+        {
+            JSX....
+        }
+    }
+
+    in class based components state is an object... accessed by this.state but it's old convention.
+
+    this.setState({ prevState .... })
+
+
+Properties - 
+
+    Data within React Components is stored as either properties or state.
+    
+    Properties are the input values to the component and cannot be manipulated.
+    
+    They are used when rendering the component and initializing state.
+
+State - 
+
+    Props are used to pass data in components, whereas state is for managing data components.
+
+    State data can be modified by its own component, but cannot be accessed from outside.
+
+
+Life Cycle Methods - 
+
+    Lifecycle methods are special methods built-in to React,
+    used to operate on components throughout their duration in the DOM.
+
+
+    Classified based on 4 phases - 
+
+        Mounting - Instance of a component is created & inserted into the DOM. -> constructor, render(), componentDidMount()
+
+        Updating - Component is re-rendered with a change in props or state. -> render() (when-rerender), componentDidUpdate()
+
+        Unmounting - Componet is removed from DOM. -> componentWillUnmount() (before unmounting some tasks are performed)
+
+        Error Handling - Error is handled in life cycle.
+
+
+
+Stateless Functional Components - 
+
+    Components that doesn't carry a state is called a stateless component.
+
+    Function component w/o useState Hook is stateless.
+
+    Stateless Componets are used in case of rendering UI only where we don't need a state.
+
+
+                Class-based Components                                         Functional Components
+
+JavaScript Function accepts props and return element.                It's required to extend from React.component. Creates a
+                                                                     render() function and returns react elements.
+
+Stateless.                                                           Statefull.
+
+Doesn't have Life Cycle Methods.                                     Has Life Cycle Methods.
+
+
+
+
+React Hooks -
+
+    Hooks are new features in react that comes with react version 16.8.
+    It helps to write any kind of code we write with class-base component, w/o class-based components.
+
+    Hooks work with functional components only.
+
+
+    useState() - 
+
+        const Fruit = ({ props.... }) =>
+        {
+            const [state, setState] = useState(initial value of state) .... array destructuring, 
+                                                                    .... const [x, y] = [1, 2, 3, 4] .. x = 1, y = 2
+
+            return (
+                    <div>
+                        <h1>Hello world</h1>
+
+                        <button onClick={() => 
+                                        {
+                                            for(int i = 0 ; i < 5 ; i++)
+                                            {
+                                                setState(prevState => prevState + 1); .... setState(state + 1) .. Won't work,
+                                                                                                            .. It takes some time.
+                                            }                                                                  .. So pass a function.
+                                            
+
+                                        }}>Click Here</button>
+                    </div>)
+        }
+
+
+    useEffect() -
+
+        useEffec(() => { ... this function cannot be async })
+    
+            useEffect runs after every render/(update in props or state).
+            
+            Initially plus when ever render is happening(any data in the component(props or state) is changing).
+
+            if setState() is there in useEffect that will fire another useEffect.
+
+
+        useEffect(() => { ... }, [dependencies ...])
+
+            If there is Dependencies.
+
+            useEffect runs Initially once and when dependencies(props or state) change.
+
+        
+        useEffect(() => { ... }, [])
+
+            Empty array as dependencies ... only runs in initial render.
+
+        useEffect(() => {  ... return () => { ... clean up function }})
+
+            clean up function is run when component is unmounted
+    
+
+
+    useContext() -
+
+        React's context allows us to share information to any component,
+        by storing it in a central place and allowing access to any component that requests it 
+
+        If we want to pass down props to some certain level of a tree without
+        passing the props to the intermediary levels, we use useContext.
+
+
+        ComponentA -> ComponentB -> ComponentC -> ComponentD
+        
+        ....Sending props from ComponentA to ComponentD w/o Component B or C
+
+
+
+
+        export const userContext = React.createContext()                     import React, { useContext } from 'react'
+        export const productContext = React.createContext()                  import { userContext, productContext } from './ComponentA'
+
+        const providerValue = { state, setState, Component, function }
+
+        const ComponentA = () =>                                              const ComponentD = () =>
+        {                                                                     {
+            return (                                                              const user = useContext(userContext)
+                    <userContext.Provider value={ providerValue }>                  const product = useContext(productContext)
+                        <productContext.Provider value={ 'Iphone' }>
+                                                                                  return (
+                            <ComponentB />                                                  <div>
+                        
+                        </productContext.Provider>                                              { user } - { product }
+                    </userContext.Provider>
+                   )                                                                        </div>
+        }                                                                                )
+                                                                              }
+    
+
+    useReducer() - 
+
+        userReducer Hook is used for state management similar to use State.
+
+        useReducer() + useContext() is an altertative of using redux for managing Golbal State or Application State.
+
+        
+
+        export const userContext = React.createContext()                      import React, { useContext } from 'react;
+                                                                              import userContext from '../App.js'
+        const initialState = { name: '', email: ''}
+                                                                              const ComponentA or B or C = () =>
+        const reducer = (state, action)                                       {
+        {                                                                           const { user, userDispatch } = useContext(userContext)
+            switch(action.type) 
+            {                                                                       return (<div>
+                case 'Case-One':                                                                <Button onSubmit= {() =>
+                    return ...                                                                          dispatch({type: 'Case-One',  
+                                                                                                                  value: ... })} />
+                case 'Case-Two':                                                                
+                    return ...                                                                  <h1>user.name</h1>
+                                                                                            </div>
+                default:                                                                   )
+                    return state                                              }
+            }
+        }
+
+        const App = () =>
+        {
+            const [user, userDispatch] = useReducer(reducer, initialState)
+
+            return (
+                    <userContext.Provider value={{ user, userDispatch }}>
+                        
+                        <ComponentA />
+                        <ComponentB />
+                        <ComponentC />
+
+                    <userContext.Provider>
+                   )
+        }
+
+
+                            useState                          vs                       useReducer
+
+              Suitable for Local State management                           Suitable for Golbal State management
+
+        suited for state transition with simple operation               State transition with complex operation can be 
+                                                                                  kept in reducer function
+                                                                        (also when new state depends on previous state).
+
+    
+    useCallback() - 
+
+        Whenever componet states or props are changed whole compnent is re-rendered.
+
+        All child components will be re-rendered as well.
+
+        wrapping functions that is changing state for one child component,
+        by useCallback and adding dependencies will prevent other child components to be re-rendered.
+
+        used for increasing performance and making UI faster.
+
+
+    useMemo() -
+
+        Similar to useCallback()... Slow function runs every time if component is re-rendered.
+
+        wrapping the slow function with useMemo and adding dependencies will prevent running the same function.
+
+        component will be re-rendered but function will not be called again for same values of dependencies.
+
+        previously returned data will be cached by useMemo.
+
+    
+    useRef - 
+
+        useRef is use to imparatively access dom nodes. Eg.- input is focus after page is loaded.
+
+        useRef can hold the reference to the DOM node.
+
+
+        const inputRef = useRef(null)
+
+        useEffec(() =>
+        {
+            inputRef.current.focus()
+
+        }, [])
+
+        <input ref={ inputRef } onChange={...} />
+
+
+
+        useRef can store any mutable value(value that can be changed where it is created) in component.
+
+        let a = 4; a++; changed...
+
+        const Timer = () =>
+        {
+            const [time, SetTime] = useState(0)
+            
+            const intervalRef = useRef()
+
+            useEffect(() =>
+            {
+                intervalRef.current = setInterval(() =>   .... Set Interval returns an intervalID
+                                                  {
+                                                      setTimer(prev => prev + 1)
+
+                                                  }, 1000)
+
+                return () => clearInterval(intervalRef.current)
+
+            }, [])
+
+            return (<div>
+
+                        <h1>{ time }</h1>  .... We want to stop timer by clicking the button
+
+                        <button onChange={() => clearInterval(intervalRef.current)} > Click </button>  
+
+                    </div>                              ... If it was a mutable value (const interval = setInterval....)
+                   )                                    ... then we won't be able to use it in the button.
+        }
+
+
+    Custom Hooks -
+
+        We can declear our own custom hook to avoid repeatation of code.
+
+        Declear a function with you hook name use ... inbuit hooks like useState or useEffect ..
+        return functions or states by array destructuring.
