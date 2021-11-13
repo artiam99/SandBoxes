@@ -1,0 +1,102 @@
+Next.js is an open-source development framework built on top of Node.js
+enabling React based web applications functionalities such as server-side rendering.
+
+
+Client Side Rendering -
+
+    A traditional React App is rendered Client Side. Browser Starts with a shell of an HTML page
+    with no rendered contents.
+
+    Then Browser fetches the javascript file containing react code for rendering content and making the page interactive.
+
+
+    But the draw back of client side rendering - 
+    
+        page content is not reliably indexed by search engine crawlers and social media link bots.
+        (Searching Engine searching phases - Crawling, Indexing, Ranking)
+
+        Initial loading time is much. As the html file is sent to browser along with javascript file.
+        Javascript file containing react code renders content renders contents .. that takes a long time.
+
+
+Server Side Rendering -
+
+    Next.js framework allows to build a react app with rendering the contents Server Side.
+
+    And html file with rendered content is send to client.
+
+    But this happens initilly only once to reduce loading time.
+
+    Then client side takes over and it works just like a traditional react app.
+
+    As data is populated server side, It's good for SEO(Search Engine Optimization).
+
+
+Pages Folder -
+
+    Every file inside Pages folder represents a route. So we don't have to manually set the routes with BrouserRouter from react-router-dom.
+
+
+Next can perform multiple server rendering -
+
+    Static Generation -
+
+        Allows us to render pages at built time.
+        
+        GetStaticProps() method fetch data from backend and pass the data as props to components.
+
+        The we can build our app to render out all pages and upload it to a storage bucket where we can cache by a CDN.
+
+        It's good for apps where data doesn't change frequently.
+
+        But there is an option for re-generation after time intervals.
+
+
+    Server Side Rendering -
+
+        In SSR html page is built each time it is requested by user.
+
+        GetInitialProps() method runs at request time to on built time and data is populated to the page server side.
+
+
+Script - 
+
+    npm run dev .. "dev": "next dev".... dev used in development mode , start in production mode.
+
+
+GetInitialProps - 
+
+    Allows SSR ... Initially in first render data is populated server side in the page.
+
+    In Client Side done in useEffect() lifeCycle hook.
+
+    _app.js is entry point of the UI. All the pages are rendered through this file.
+
+    in _app.js GetInitialProps() takes in Component and ctx ... Component is the page we and to render.
+
+    in other page's GetInitialProps() we have only ctx
+
+    ctx is an object contains - pathname, query, asPath
+
+
+
+getInitialProps Vs getServerSideProps -
+
+    getInitialProps: (Better)
+
+        for ssr, the nextjs server hits the api server directly.
+
+        for csr, the client hits the api server directly.
+
+    getServerSideProps:
+
+        for ssr, the nextjs server hits the api server directly.
+
+        for csr, the client hits the nextjs server which then hits the api server.
+
+
+Non-Related topic -
+
+    Cloud refers to software and services that run on the Internet, instead of locally on your computer.
+
+    Heroku is a cloud based software platform for deploying and managing our web applications.
