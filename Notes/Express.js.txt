@@ -67,7 +67,8 @@ Expres.js -
 
     
 
-    Middleware - Function that runs when an http request is sent to an api endpoint.
+    Middleware - Function that runs during the lifecycle of a request, it has access to req and rs object,
+                 next() forwards the flow to next middleware.
 
         app.use(middleware) .... middleware added to all routes.
         
