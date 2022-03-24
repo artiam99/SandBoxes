@@ -1,0 +1,196 @@
+The Spring Framework is a Dependency Injection framework to make java application loosely coupled.
+
+Spring framework makes the easy development of Java EE (EE - Enterprise Edition, SE - Standard Edition) application.
+
+
+Inversion of Control -
+
+    class a is dependant on class b onject. In class a if we create object of class b using new keyword in a then it will be tightly coupled (if we change in class b, we will have to change code in class a).
+
+    In Java Spring Application object creation contorl is given to Spring instead of external code. Spring Container will create object of a class and inject that to another class. This is called Inversion of Control.
+
+Dependency Injection -
+
+    In Java Spring Application object creation contorl is given to Spring instead of external code. Spring Container will create object of a class and inject that to another class. This is called Dependency Injection.
+
+    Types - Setter Injection (Set fields while object creation using setMethods) & Constructor Injection (Set fields while object creation using constructor)
+
+IoC Container -
+
+    IoC Container or Spring Container is a component that comes with spring framework which has some responsibility like creating objects, maintaining life cycle of objects, injecting objects in other classes etc.
+
+
+
+
+
+Spring Modules -
+
+    Core Modules -
+
+        Bean - Provides IoC and Dependency Injection.
+        Core - Provides IoC and Dependency Injection.
+        Context (IoC Container) - Instantiating, configuring, and assembling beans.
+        spEL (Spring Expression Language) - It supports querying and manipulating an object graph at runtime.
+
+    AOP -
+
+        Functional Programming code is written in function flows .. Makes things complex .. difficult to extension.
+
+        Object Oriented Programming divides code into entites and it's easy to extend without too much modification.
+
+        AOP provieds tha plugable way to dynamically add the additional concern before, after or around actual logic.
+
+        eg. after A1(), A2(), A3() method notification must be sent. But in future if we don't want to send notification then we would have to change in all A1(), A2(), A3()... OOP fails here.
+
+        In AOP we define additional concerns in methods of a class and that class entry is given in xml file. So if we want to change any aditional concern we can change it from xml file.
+
+    Instrumentation -
+
+        provides class instrumentation support and classloader implementations to be used in certain application servers.
+
+    Data Access / Integration -
+
+        JDBC (Java Database Connectivity) - used for Java database connectivity.
+
+        ORM (Object Relational Mapping) - used for converting data between relational databases and oop languages.
+
+        JMS (Java Message Service) - used for asynchronously sending and receiving business data and events in EE application.
+
+        OXM (Object XML Mapper) - mapping between java objects and XML documents.
+
+    Web -
+
+        Servlet - Java Class designed to process HTTP requests.
+
+        JPA (Java Server Pages) - used to create dynamic and platform independent web pages.
+
+    Test -
+
+        JUnit - Testing Classes and methods.
+
+
+
+
+
+Application Context extends Bean Factory and it represents IoC container.
+    
+    Sub-Class -
+
+        XMLConfig - Scans files where xmls are used
+        AnnotationConfig - Scans files where annotaions are used
+        FileSystemConfig - file system config.
+
+
+Config File -
+    
+    Where we declare beans and their Dependencies.
+
+
+
+
+Maven -
+
+    Maven is a build automation tool used primarily for Java projects.
+
+    pom.xml -  Project Object Model
+
+
+
+Life Cycle -
+
+    We can implement life cycle of beans using - xml, interface and annotation.
+
+    Annotaion - Java annotations are metadata (data about data) for our program source code.
+                We can anotate classes, methods, variables, parameters and packages.
+
+    @PostConstruct - Added in method to call method after bean in created.
+
+    @PreDestruct - Added in method to call method before bean in destroyed.
+
+    @Autoworing - Automatically (Not manually) injects objects in another class.
+
+    @Qualifier - Specifies which bean to auto inject when multiple beans are there for same class.
+
+    @Component - Allows Spring to automatically detect our custom beans.
+
+                 Scope of a bean is a singleton. Bean used by autowired in all classes are similar.
+
+    @Value - Part of spEL (spring expression language), used for parsing and executing expression.
+             In simple words initializing values to fields for class of which the bean is created.
+             @Value("Debarshi Maitra") or @Value("#{12 + 13}") ... expression like regex.
+             public String name;
+    
+    @Configuration - Indicates that the class declares one or more @Bean methods and may be processed by the
+                 Spring container to generate bean definitions and service requests for those beans at runtime.
+
+    @Bean - Is applied on a method to specify that it returns a bean to be managed by Spring context.
+
+    @Service - Is used to denote class belongs to Service Layer where the business logics are written.
+
+    @Transactional - Is used to roll back transaction if exception occurs (maintains ACID Compliances) and
+                     is added to methods in Service Layer (as trancation properties must be dependant on business logic).
+                     Eg. Data with NULL value for some field (@Nulable == false) is sent for insert.
+                     Excpetion occurs from (@Nullable == false) but if transactional is not there in Service Layer,
+                     data with NULL value will be inserted in the database.
+                     Using "RollBackFor" attibute we can specify the type to exeption (eg. RuntimeException) for which
+                     we should to roll back our transaction.
+
+    @Repository - Is a specialization of @Component annotation which is used to indicate
+                  that the class provides the mechanism for CRUD operation in the Database.
+                  Used to denote that the class belongs to DAO Layer.
+
+    @RequestMapping - Is used to provide controller path and to mention menthod (GET, POST) for the controller function.
+
+    @ApiOperation - is used to provide description of controller end point in swagger.
+
+    @Api - Is used to configure a class as a Swagger resource. 
+
+    @Controller - In combination with a @RequestMapping annotation for request handling methods.
+
+    @RestController - Allows to handle all REST APIs such as GET, POST, Delete, PUT requests.
+
+
+
+
+JPA - 
+
+    Java Persistence API is a specification of Java which is used to persist data
+    between Java object and relational database.
+
+
+JPQL -
+
+    Java Persistence Query Language defined in JPA specification which is used to create
+    queries against entities to store in a relational database.
+
+
+HQL -
+
+    Hibernate Query Language is an object-oriented query language, similar to SQL, but instead of
+    operating on tables and columns, HQL works with persistent objects and their properties.
+
+
+Spring MVC -
+
+    Spring MVC is a sub-framework which is used to build java based web application.
+    Build on top of servlet api.
+    It follows Model View Controller design pattern where model means data, view means ui,
+    controller means api (interface b/w data and Ui).
+
+
+Tomcat -
+
+    Tomcat is used for running HTTP web server environment for java based web applications.
+
+
+JSP -
+
+    Java Server Pages is a Java standard technology that enables you to write dynamic,
+    data-driven pages for your Java web applications.
+
+
+Spring Boot Vs Classic Spring -
+
+    Spring Boot does a lot of thing behind the scenes that makes debugging defficult.
+    Spring Boot downloads a lot of uneless dependencies which makes project be large in size.
+    
