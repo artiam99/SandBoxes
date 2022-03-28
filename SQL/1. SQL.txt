@@ -1,0 +1,91 @@
+Database:
+
+1.	CREATE DATABASE testDB;
+
+2.	DROP DATABASE testDB;
+
+3.	BACKUP DATABASE testDB
+	TO DISK = 'D:\backups\testDB.bak';
+
+
+
+Table:
+
+1.	CREATE TABLE student
+	(
+		id INT NOT NULL UNIQUE AUTO_INCREMENT,
+		name VARCHAR(20) NOT NULL,
+		major VARCHAR(20),
+		gpa DECIMAL(5,2),  ................ 100.00 (m-n.n)
+		phone VARCHAR(10) UNIQUE,
+		dob DATE,  ........................ "yyyy-mm-dd",
+	);
+
+
+2.	CREATE TABLE topper AS  ................. create table from another table
+    	SELECT id, name
+   	FROM student
+   	WHERE gpa >= 9.0;
+
+
+3.	DROP TABLE student;
+
+
+4.	ALTER TABLE student  .................... add new column in existing table
+	ADD dob DATE;
+
+
+5.  	ALTER TABLE student  .................... remove column from existing table
+	DROP COLUMN dob;
+
+
+6.	ALTER TABLE student  .................... change datatype of column in existing table
+	ALTER COLUMN marks DECIMAL(5.2);
+
+
+7.  	CREATE TABLE student
+	(
+    		id INT NOT NULL UNIQUE AUTO_INCREMENT,
+    		name VARCHAR(20) NOT NULL DEFAULT 'John Doe',
+    		age INT DEFAULT 0,
+    		PRIMARY KEY (id)
+	);
+
+
+8.	CREATE TABLE student
+	(
+    		id INT NOT NULL UNIQUE AUTO_INCREMENT,
+    		name VARCHAR(20) NOT NULL,
+    		courseId INT NOT NULL,
+    		CONSTRAINT pk_student PRIMARY KEY (id, courseId)  ........ pk_student is name of primary key
+	);
+
+
+9.	ALTER TABLE student  ........................................... add primary key in existing table
+	ADD PRIMARY KEY (id);
+
+
+10.	ALTER TABLE student
+	ADD CONSTRAINT pk_student PRIMARY KEY (id, courseId);
+
+
+11.	ALTER TABLE student  ........................................... remove primary key from existing table
+	DROP PRIMARY KEY;
+
+
+12.	ALTER TABLE student
+	DROP CONSTRAINT pk_student;
+
+
+13.	CREATE TABLE student
+	(
+    		id INT NOT NULL,
+    		name VARCHAR(20) NOT NULL,
+    		PRIMARY KEY (id),
+    		FOREIGN KEY (courseId) REFERENCES course(id)
+);
+
+
+14.	ALTER TABLE student  ........................................... add foreign key in existing table
+	ADD CONSTRAINT FK_PersonOrder
+	FOREIGN KEY (id) REFERENCES course(courseId);

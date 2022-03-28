@@ -1,0 +1,90 @@
+1.	SELECT * FROM student;  ................................... print student table
+
+
+2.	INSERT INTO student VALUES(1, 'John', 'CSE');  ............ insert row of data in a table
+
+
+3.	SELECT name, major FROM student WHERE name IN('John', 'Jane') ORDER BY name ASC, major DESC;
+
+4.	SELECT DISTINCT country FROM student;  .................... duplicate rows are removed
+
+
+5. 	SELECT COUNT(*) FROM (SELECT DISTINCT country student);  .. count of countries
+
+
+6.	SELECT COUNT(*) FROM student WHERE name LIKE 'A%';  ....... name starts with 'A', '%' = any no. of chars, '_' = one char
+
+
+7.	SELECT * FROM student WHERE country='Germany' OR country='Spain';
+
+
+8.	SELECT * FROM student WHERE NOT country='Germany';
+
+
+9.	UPDATE student set major = 'CSE', name = 'John' WHERE name = 'Tom' AND major = 'EE';
+
+
+10.	DELETE FROM student WHERE id = 4;
+
+
+11.	SELECT name, address FROM student WHERE address IS NULL;
+
+
+12. 	SELECT * FROM student WHERE name IS NOT NULL;
+
+
+13.	SELECT * FROM student ORDER BY gpa DESC LIMIT 10;  ....... print records for top 10 students
+
+
+14.	SELECT MAX(gpa) FROM student;  ........................... print topper
+
+
+15.	SELECT COUNT(id) FROM student;  .......................... number of students
+
+
+16.	SELECT AVG(gpa) FROM student;  ........................... average gpa of the class
+
+
+17. 	SELECT SUM(age) FROM student;  ........................... sum of ages of all students
+
+
+18.	SELECT * FROM student WHERE country NOT IN (SELECT country FROM customer);
+
+
+19.	SELECT * FROM student WHERE age BETWEEN 10 AND 20;
+
+
+20.	SELECT * FROM students WHERE dob BETWEEN '1996-07-01' AND '1996-07-31';
+
+
+21.	SELECT name, address FROM (SELECT * FROM student WHERE city = 'London') ORDER BY name;
+
+
+22.	SELECT id AS studentId, name AS studentName FROM student;  ....... Use diffrent column name
+
+
+23.	SELECT student.id, student.name, course.name FROM student  ....... Inner Join and Join are same
+	INNER JOIN course ON student.courseId = course.id;  .............. gives matching values from 2 tables.
+
+
+24.	SELECT student.id, student.name, course.name FROM student  ....... fields from course table can have null
+	LEFT JOIN course ON student.courseId = course.id;
+
+
+24.	SELECT student.id, student.name, course.name FROM student  ....... fields from student table can have null
+	RIGHT JOIN course ON student.courseId = course.id;
+
+
+25.	SELECT student.id, student.name, course.name FROM student  ....... fields from both table can have null
+	FULL OUTER JOIN course ON student.courseId = course.id;
+
+
+26.	SELECT A.name AS name1, B.name AS name2, A.city FROM student A, student B .... Self Join
+	WHERE A.id <> B.id AND A.city = B.city;
+
+27.	SELECT DISTINCT city FROM (SELECT city FROM student UNION SELECT city FROM employee); .... Union adds all data together
+															  .... columns must be similar for Union
+
+28.	SELECT COUNT(id), country FROM student GROUP BY country; ....... for each country student count
+
+
