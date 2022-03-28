@@ -46,7 +46,7 @@ Table:
 7.  	CREATE TABLE student
 	(
     		id INT NOT NULL UNIQUE AUTO_INCREMENT,
-    		name VARCHAR(20) NOT NULL DEFAULT 'John Doe',
+    		name VARCHAR(20) DEFAULT 'John Doe',
     		age INT DEFAULT 0,
     		PRIMARY KEY (id)
 	);
@@ -87,5 +87,5 @@ Table:
 
 
 14.	ALTER TABLE student  ........................................... add foreign key in existing table
-	ADD CONSTRAINT FK_PersonOrder
+	ADD CONSTRAINT fk_student
 	FOREIGN KEY (id) REFERENCES course(courseId);
