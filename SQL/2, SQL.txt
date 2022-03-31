@@ -6,10 +6,11 @@
 
 3.	SELECT name, major FROM student WHERE name IN('John', 'Jane') ORDER BY name ASC, major DESC;
 
+
 4.	SELECT DISTINCT country FROM student;  .................... duplicate rows are removed
 
 
-5. 	SELECT COUNT(*) FROM (SELECT DISTINCT country student);  .. count of countries
+5. 	SELECT COUNT(*) FROM (SELECT DISTINCT country FROM student);  .. count of countries
 
 
 6.	SELECT COUNT(*) FROM student WHERE name LIKE 'A%';  ....... name starts with 'A', '%' = any no. of chars, '_' = one char
